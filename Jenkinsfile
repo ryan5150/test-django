@@ -19,15 +19,15 @@ pipeline {
     stage('Build docker image') {
       steps {
         powershell '''
-          docker build -t test2:rturner .
-          docker tag test2:rturner 067632295443.dkr.ecr.us-east-2.amazonaws.com/test2:rturner
+          docker build -t test1:rturner .
+          docker tag test2:rturner 067632295443.dkr.ecr.us-east-2.amazonaws.com/test1:rturner
         '''
       }
     }
     stage('Pushing image to ECR') {
       steps {
         powershell '''
-          docker push 067632295443.dkr.ecr.us-east-2.amazonaws.com/test2:rturner
+          docker push 067632295443.dkr.ecr.us-east-2.amazonaws.com/test1:rturner
         '''
       }
     }
